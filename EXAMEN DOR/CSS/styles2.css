@@ -1,0 +1,165 @@
+/* HEADER */
+.item1 { 
+  grid-area: header; 
+  background-color: #FF0000;
+}
+.item1 img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ANIMATION */
+.item2 { 
+  grid-area: animation; 
+  background-color: #C2C2C2;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.coin {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.coin-image {
+    position: absolute;
+    animation: mover 5s linear infinite;
+    height: 100px;
+    width: auto;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-image {
+    height: 100px;
+    width: 105px;
+    cursor: pointer;
+}
+
+@keyframes mover {
+    0% {
+        left: 0;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        left: calc(100% - 100px);
+        transform: rotate(360deg);
+    }
+}
+
+/* MAIN */
+.item3 { 
+    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    align-items: center; 
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.image-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image {
+    width: 90%;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .text {
+    text-align: center;
+  }
+  
+  .text h2 {
+    margin-bottom: 10px;
+  }
+
+/* GRAPHICS */
+.item4 { grid-area: right; }
+
+
+/* FOOTER */
+.item5 { 
+  grid-area: footer; 
+  background-color: #7C7C7C7C;
+  color: #FFFFFF;
+}
+
+/* GENERAL */
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'animation animation animation animation animation animation'
+    'main main main right right right'
+    'footer footer footer footer footer footer';
+}
+
+.grid-container > div {
+  text-align: center;
+  padding: 20px 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 767px) {
+  .grid-container {
+    /* Nuevas propiedades de Grid Layout */
+    display: grid;
+    grid-template-areas:
+      'header header'
+      'animation animation'
+      'main main'
+      'right right'
+      'footer footer';
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .item1 {
+    grid-area: header;
+  }
+
+  .item2 {
+    grid-area: animation;
+  }
+
+  .item3 {
+    grid-area: main;
+  }
+
+  .item4 {
+    grid-area: right;
+  }
+
+  .item5 {
+    grid-area: footer;
+  }
+}
